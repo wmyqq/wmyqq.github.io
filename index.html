@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <script src="./vue-router.js"></script>
+    <title>墨雨丶千秋的博客</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            border-collapse:collapse;
+        }
+        .card{
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgb(255, 255, 255);
+        }
+        /* 左右居中 */
+        body{
+            background-color: #0d123b
+        }
+        header{
+            display: flex;
+            width: 1000px;
+            height: 60px;
+            margin: 10px auto;
+            border: 1px solid #3bffe7;
+        }
+        header a{
+            text-decoration: none;
+            display: block;
+            width: 250px;
+            height: 58px;
+
+
+            text-align: center;
+            line-height: 58px;
+            font-size: 30px;
+            font-family:Verdana;
+            color:#3bffe7;
+            text-shadow: 0 0 10px #3bffe7;
+            -webkit-text-stroke:1px #3bffe7;
+
+        }
+        header a:hover{
+            /* background-color: #3bffe7; */
+            background-color: #00ffe1;
+            color: #6309ff;
+            text-shadow: 0 0 10px #6309ff;
+            -webkit-text-stroke:1px #6309ff;
+
+        }
+
+        main{
+            width: 1000px;
+            min-height: 400px;
+            margin: 10px auto;
+            /* border-radius: 5px;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0 0 5px black; */
+        }
+        #main_a_LBT{
+            position:relative;
+            width: 1000px;
+            height: 500px;
+            overflow: hidden;
+            color: #3bffe7;
+        }
+        #main_a_LBT ul{
+            position:absolute;
+            width: 4000px;
+            height:500px;
+        }
+        #main_a_LBT li{
+            display: inline-block;
+        }
+        #main_a_LBT img{
+            z-index: 1;
+            height:500px;
+            width: 1000px;
+        }
+        #main_a_LBT #main_a_List{
+            
+            position:absolute;
+            bottom:0;
+            left:50%;
+            transform:translate(-50%,-50%);
+            z-index: 2;
+            display: flex;
+            height: 20px;
+            width: auto;
+
+            text-align: center;
+        }
+        #main_a_List>div{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin: 0 5px;
+            background-color: #3bffe7;
+        }
+        #main_a_List>div:hover{
+            background-color: #ffffff;
+            color: #6309ff;
+            text-shadow: 0 0 10px #6309ff;
+            -webkit-text-stroke:1px #6309ff;
+        }
+        .active{
+            background-color: rgb(0, 0, 0)!important;
+        }
+        #main_a_cards>div{
+            height: 100px;
+            width: 1000px;
+            margin: 10px auto;
+            border-radius: 5px;
+            box-shadow: 0 0 10px #3bffe7;
+            
+            color: #3bffe7;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <com-all></com-all>
+    </div>
+    <script>
+         //首页路由页面
+         const main_a={
+             data:function(){
+                 return{
+                    imgs:["./tu/01.png","./tu/02.png","./tu/03.png","./tu/04.png"],
+                    move:-1000,
+                    i:1,
+                    
+                }
+             },
+             methods: {
+                gotoimg:function(index){
+                    this.$refs.allimg.style.left=this.move*index+"px"
+                    this.i=index+1;
+                },
+            },
+             mounted:function(){
+                setInterval(()=>{
+                    if(this.i==this.imgs.length){
+                        this.i=0
+                    }
+                        this.$refs.allimg.style.left=this.move*this.i+"px"
+                        this.i=this.i+1
+                    },3000)
+             },
+            template:`<div>
+                <main>
+                    <div id="main_a_LBT">
+                        <ul id="img" ref="allimg">
+                            <li v-for="(imgsrc,index) in imgs" :key=index>
+                                <img :src=imgsrc />
+                            </li>
+                        </ul>
+                        <div ref="alllist" id="main_a_List" >
+                            <div :class="{active:i==index+1}" @click="gotoimg(index)" v-for="(imgsrc,index) in imgs" :key=index></div>
+                        </div>
+                    </div>
+
+                    <div id="main_a_cards">
+                        <div><p>测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语</p></div>
+                        <div><p>测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语</p></div>
+                        <div><p>测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语</p></div>
+                        <div><p>测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语</p></div>
+                        <div><p>测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语</p></div>
+                        <div><p>测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语</p></div>
+                        <div><p>测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语</p></div>
+                        <div><p>测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语</p></div>
+                        <div><p>测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语</p></div>
+                    </div>
+                </main>    
+            </div>`
+        }
+        //第二页路由页面
+        const main_b = {
+            template: `<div>
+            <main>
+                <div>卡片21</div>
+                <div>卡片22</div>
+            </main>    
+        </div>`
+        }
+        //第三页路由页面
+        const main_c = {
+            template: `<div>
+            <main>
+                <div>卡片31</div>
+                <div>卡片32</div>
+            </main>    
+        </div>`
+        }
+        //第四页路由页面
+        const main_d = {
+            template: `<div>
+            <main>
+                <div>卡片41</div>
+                <div>卡片42</div>
+            </main>    
+        </div>`
+        }
+
+        //配置路由
+        const router_a = new VueRouter({
+            //routes路由规则数组
+            routes: [
+                {path:'/',redirect:'/one'},
+                { path: '/one', component:main_a},
+                { path: '/two', component:main_b },
+                { path: '/three', component:main_c },
+                { path: '/four', component:main_d }
+            ]
+        })
+        //总体组件
+        var all = {
+        template: `<div>
+            <header style="box-shadow: 0 0 10px black;">
+                <router-link  to="/one">主页</router-link>
+                <router-link to="/two">第二</router-link>
+                <router-link to="/three">第三</router-link>
+                <router-link to="/four">第四</router-link>
+            </header>
+            <router-view></router-view>
+            <footer>
+            </footer>
+        </div>`,
+        router:router_a
+        }
+       
+        //总体实例
+        var app = new Vue({
+            el: '#app',
+            components:{
+	            'com-all':all,
+            }
+        })
+    </script>
+</body>
+
+</html>
