@@ -9,15 +9,14 @@
     <script src="./vue-router.js"></script>
     <title>墨雨丶千秋的博客</title>
     <style>
+
         * {
             padding: 0;
             margin: 0;
             box-sizing: border-box;
             border-collapse:collapse;
-        }
-        .card{
-            border-radius: 5px;
-            box-shadow: 0 0 5px rgb(255, 255, 255);
+            scroll-behavior:smooth;
+
         }
         /* 左右居中 */
         body{
@@ -26,25 +25,36 @@
         header{
             display: flex;
             width: 1000px;
-            height: 60px;
             margin: 10px auto;
             border: 1px solid #3bffe7;
         }
         header a{
             text-decoration: none;
             display: block;
-            width: 250px;
-            height: 58px;
+            width: 25%;
+            height: 60px;
 
 
             text-align: center;
-            line-height: 58px;
+            line-height: 60px;
             font-size: 30px;
             font-family:Verdana;
             color:#3bffe7;
             text-shadow: 0 0 10px #3bffe7;
             -webkit-text-stroke:1px #3bffe7;
-
+        }
+        /* 在宽度为 768px 或更小的屏幕上*/
+        @media screen and (max-width: 768px) {
+            header{
+                width: 100%;
+                flex-direction:column;
+            }
+            header a{
+                font-size: 20px;
+                width: 100%;
+                height: 40px;
+                line-height: 40px;
+            }
         }
         header a:hover{
             /* background-color: #3bffe7; */
@@ -59,13 +69,10 @@
             width: 1000px;
             min-height: 400px;
             margin: 10px auto;
-            /* border-radius: 5px;
-            background-color: rgb(255, 255, 255);
-            box-shadow: 0 0 5px black; */
         }
         #main_a_LBT{
             position:relative;
-            width: 1000px;
+            width: 100%;
             height: 500px;
             overflow: hidden;
             color: #3bffe7;
@@ -73,7 +80,7 @@
         #main_a_LBT ul{
             position:absolute;
             width: 4000px;
-            height:500px;
+            height:100%;
         }
         #main_a_LBT li{
             display: inline-block;
@@ -84,7 +91,6 @@
             width: 1000px;
         }
         #main_a_LBT #main_a_List{
-            
             position:absolute;
             bottom:0;
             left:50%;
@@ -109,13 +115,40 @@
             text-shadow: 0 0 10px #6309ff;
             -webkit-text-stroke:1px #6309ff;
         }
+        /* 在宽度为 768px 或更小的屏幕上*/
+        @media screen and (max-width: 768px) {
+            header{
+                width: 100%;
+                flex-direction:column;
+            }
+            header a{
+                width: 100%;
+            }
+            #main_a_LBT{
+                height:330px;
+            }
+
+        }
         .active{
-            background-color: rgb(0, 0, 0)!important;
+            background-color: yellow!important;
+        }
+        .main_a_LBT_test{
+            position: absolute;
+            top:50%;
+            width: 100%;
+            background-color: rgb(0, 0, 0);
+
+            text-align: center;
+            font-size: 20px;
+            color: rgb(255, 255, 255);
+        }
+        #main_a_cards{
+            width:1000px ;
         }
         #main_a_cards>div{
-            height: 100px;
+            min-height: 100px;
             width: 1000px;
-            margin: 10px auto;
+            margin: 20px auto;
             border-radius: 5px;
             box-shadow: 0 0 10px #3bffe7;
             
@@ -123,7 +156,93 @@
             text-align: center;
             line-height: 100px;
         }
+        #main_a_cards>div>div{
+            color: rgb(255, 255, 255);
+        }
+        .main_a_card_test{
+            margin: auto;
+            width: 900px;
+            line-height: 30px;
+        }
+        /* 在宽度为 768px 或更小的屏幕上*/
+        @media screen and (max-width: 768px) {
+            main,#main_a_cards,#main_a_cards>div,.main_a_card_test{
+                width:100%;
+            }
+            .main_a_LBT_test{
+            top: 100px;
+            }
+            #main_a_cards>div{
+            min-height: 50px;
+            margin: 10px auto;
+            border-radius: 2px;
+            box-shadow: 0 0 5px #3bffe7;
+
+                font-size: 10px;
+            line-height: 50px;
+        }
+        }
+        #main_b_list{
+            display: flex;
+        }
+        /* #main_b_list_all{
+            display: none;
+        } */
+        #main_b_list_all{
+                /* display: block; */
+                height: 30px;
+                width: 100%;
+                background-color: tomato;
+
+                text-align: center;
+                line-height: 30px;
+            }
+        #main_b_list>a{
+            display:block;
+            width: 12.5%;
+            height: 30px;
+            background-color: darkorange;
+
+            text-decoration-line: none;
+            text-align: center;
+            line-height: 30px;
+        }
+        /* 在宽度为 768px 或更小的屏幕上*/
+        @media screen and (max-width: 768px) {
+            #main_b_list{
+                width: 100%;
+                flex-direction:column;
+            }
+            #main_b_list>a{
+                width: 100%;
+            }
+            #main_b_list_all{
+                /* display: block; */
+                height: 30px;
+                width: 100%;
+                background-color: tomato;
+
+                text-align: center;
+                line-height: 30px;
+            }
+        }
+        .listtabstyle{
+            color: rgb(255, 246, 244);
+        }
+        .two_a_img img{
+            display: block;
+            width: 100%;
+            height: 500px;
+        }
+        /* 在宽度为 768px 或更小的屏幕上*/
+        @media screen and (max-width: 768px) {
+            .two_a_img img{
+                width: 100%;
+                height: 300px;
+            }
+        }
     </style>
+
 </head>
 
 <body>
@@ -131,14 +250,71 @@
         <com-all></com-all>
     </div>
     <script>
+        //js实现媒体查询
+            var sqls = [
+            window.matchMedia('(max-width:480px)'), //和CSS一样，也要注意顺序！
+            window.matchMedia('(max-width:768px)'),
+            window.matchMedia('(max-width:980px)'),
+            window.matchMedia('(max-width:1200px)')
+        ]
+
+        function mediaMatches() {
+            if(sqls[0].matches){
+                console.log('<=418'); //do something...
+            }else if(sqls[1].matches){
+                console.log('>418 & <=768'); // do something...
+            }else if(sqls[2].matches){
+                console.log('>768 & <=992'); // do something...
+            }else if(sqls[3].matches){
+                console.log('> 992 & <=1200'); // do something...
+            }else {
+                console.log('>1200');
+            }
+        }
+        mediaMatches(); //页面首次加载
+
+        for(var i = 0; i < sqls.length; i++){
+            sqls[i].addListener(mediaMatches);
+        }
+        //首页路由的轮播图信息
+        let main_a_imgs=["./tu/01.png","./tu/02.png","./tu/03.png","./tu/04.png"]
+        //首页路由下面的卡片信息
+        let main_a_cardlists=[{
+            title:'接下来的就是只言片语，点一下试试',
+                p:"往下每一个都是对这个网站或本人的描述"
+            },{
+                title:'第一条消息',
+                p:"这是一段话，第一条消息的主要内容，接下来的内容都是一次一次的说明，又或者其他的一些东西，就像是更新公告"
+            },{
+                title:'第二条消息',
+                p:"目前采用局部弹性，其余媒体查询的形式完成多端共用一个代码"
+            },{
+                title:'第三条信息',
+                p:"正在学习vue，但js掌握的并不多，css和html有待提高"
+            },{
+                title:'第四条信息',
+                p:"webpack和github已经了解基本操作"
+            },{
+                title:'第五条信息',
+                p:"Es6等，也只是了解，并没有系统学习"
+            },{
+                title:'第六条信息',
+                p:"unity3D才开始接触"
+            },{
+                title:'第七条信息',
+                p:"目前接触语言：c(能够熟练使用),c++(能够熟练使用),java(学习到ArrayList时转学web),javescript(DOM，BOM掌握不熟练，其余可以熟练使用),html(div牛13！),css(可以实现基础布局，配合js手写纯css的动态星空目前无法实现),vue2.0(3.0都出了，我2.0才了解完毕，路由、组件可以熟练部署，传值方面略有生疏，脚手架没有使用过，所以，vue单文件项目没有做过),c#(正在学习),lua(准备学习)目前暂时放弃成为大前端的目标，而是成为：小前端（主职）+游戏开发（副职）模式≈（小爱好+高兴趣+稳当职业）+（大爱好+高兴趣+较冒险职业）"
+            }
+        ]
          //首页路由页面
          const main_a={
              data:function(){
                  return{
-                    imgs:["./tu/01.png","./tu/02.png","./tu/03.png","./tu/04.png"],
+                    imgs:main_a_imgs,
                     move:-1000,
+                    cardlists:main_a_cardlists,
                     i:1,
-                    
+                    isActive:true,
+                    num:-1   
                 }
              },
              methods: {
@@ -146,6 +322,18 @@
                     this.$refs.allimg.style.left=this.move*index+"px"
                     this.i=index+1;
                 },
+                FanZhuan:function(index){
+                    this.isActive=!this.isActive
+                    this.num=index
+                },
+                showCard:function(index){
+                    if(this.num==index){
+                        return true
+                    }else{
+                        return false
+                    }
+                }
+
             },
              mounted:function(){
                 setInterval(()=>{
@@ -167,37 +355,63 @@
                         <div ref="alllist" id="main_a_List" >
                             <div :class="{active:i==index+1}" @click="gotoimg(index)" v-for="(imgsrc,index) in imgs" :key=index></div>
                         </div>
+                        <div class="main_a_LBT_test">轮播图测试，小圆点也可以点</div>
                     </div>
 
                     <div id="main_a_cards">
-                        <div><p>测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语</p></div>
-                        <div><p>测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语</p></div>
-                        <div><p>测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语</p></div>
-                        <div><p>测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语</p></div>
-                        <div><p>测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语</p></div>
-                        <div><p>测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语</p></div>
-                        <div><p>测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语</p></div>
-                        <div><p>测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语</p></div>
-                        <div><p>测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语测试汉语</p></div>
+                        <div @click="FanZhuan(index)" v-for="(itm,index) in cardlists" :key=index><h2>
+                        {{itm.title}}</h2><div class="main_a_card_test" v-show="showCard(index)">
+                        {{itm.p}}</div></div>
                     </div>
                 </main>    
             </div>`
         }
         //第二页路由页面
         const main_b = {
+            data:function(){
+                return{
+                    islistTab:false,
+                    seelist:1,
+                    isseelist:true,
+                }
+            },
             template: `<div>
             <main>
-                <div>卡片21</div>
-                <div>卡片22</div>
+                <div id="main_b_list_all" @click="ListTab()">点击（显示/隐藏）目录</div>
+                <div id="main_b_list" v-show="islistTab">
+                    <router-link to="/two/two_a" @click="SeeList(1)" >冒泡排序</router-link>
+                    <router-link to="/two/two_b" @click="SeeList(2)" >快速排序</router-link>
+                    <router-link to="/two/two_c" @click="SeeList(3)" >希尔排序</router-link>
+                    <router-link to="/two/two_d" @click="SeeList(4)" >堆排序</router-link>
+                    <router-link to="/two/two_e" @click="SeeList(5)" >归并排序</router-link>
+                    <router-link to="/two/two_f" @click="SeeList(6)" >计数排序</router-link>
+                    <router-link to="/two/two_g" @click="SeeList(7)" >桶排序</router-link>
+                    <router-link to="/two/two_h" @click="SeeList(8)" >基数排序</router-link>
+                </div>
+                    <router-view></router-view>
             </main>    
-        </div>`
-        }
+        </div>`,
+        methods: {
+            ListTab:function(){
+                this.islistTab=!this.islistTab
+            },
+            SeeList:function(index){
+                this.seelist=index
+            }
+        },
+        // computed: {
+        //     classObject: function () {
+        //         return {
+        //             listtabstyle: seelist==1
+        //         }
+        //     }
+        // }
+    }
         //第三页路由页面
         const main_c = {
             template: `<div>
             <main>
                 <div>卡片31</div>
-                <div>卡片32</div>
             </main>    
         </div>`
         }
@@ -210,6 +424,58 @@
             </main>    
         </div>`
         }
+        //第二二级第一路由界面
+        const two_a = {
+            template: `<div><div><div class="two_a_img">
+                <img src="./tu/paixv/MaoPaoPaiXv.gif">
+        </div></div></div>`
+        }
+        //第二二级第二路由界面
+        const two_b = {
+            template: `<div><div><div class="two_a_img">
+                <img src="./tu/paixv/KuaiSuPaiXv.gif">
+        </div></div></div>`
+        }
+        //第二二级第三路由界面
+        const two_c = {
+            template: `<div><div>
+                <div class="two_a_img">
+                <img src="./tu/paixv/XiErPaiXv.gif">
+            </div>
+        </div>
+        </div>`
+        }
+        //第二二级第四路由界面
+        const two_d = {
+            template: `<div><div><div class="two_a_img">
+                <img src="./tu/paixv/DuiPaiXv.gif">
+        </div></div></div>`
+        }
+        //第二二级第一路由界面
+        const two_e = {
+            template: `<div><div><div class="two_a_img">
+                <img src="./tu/paixv/GuiBingPaiXv.gif">
+        </div></div></div>`
+        }
+        //第二二级第二路由界面
+        const two_f = {
+            template: `<div><div><div class="two_a_img">
+                <img src="./tu/paixv/JiShuPaiXv(jisuan).gif">   
+        </div></div></div>`
+        }
+        //第二二级第三路由界面
+        const two_g = {
+            template: `<div><div><div class="two_a_img">
+                <img src="./tu/paixv/TongPaiXv.png">
+        </div></div></div>`
+        }
+        //第二二级第四路由界面
+        const two_h = {
+            template: `<div><div><div class="two_a_img">
+                <img src="./tu/paixv/JiShuPaiXv(jiben).gif">
+        </div></div></div>`
+        }
+
 
         //配置路由
         const router_a = new VueRouter({
@@ -217,25 +483,44 @@
             routes: [
                 {path:'/',redirect:'/one'},
                 { path: '/one', component:main_a},
-                { path: '/two', component:main_b },
+                { path: '/two', 
+                component:main_b,
+                children:[
+                        {path:'/two',redirect:'/two/two_a'},
+                        {path:'/two/two_a',component:two_a},
+                        {path:'/two/two_b',component:two_b},
+                        {path:'/two/two_c',component:two_c},
+                        {path:'/two/two_d',component:two_d},
+                        {path:'/two/two_e',component:two_e},
+                        {path:'/two/two_f',component:two_f},
+                        {path:'/two/two_g',component:two_g},
+                        {path:'/two/two_h',component:two_h},
+                    ]
+            },
                 { path: '/three', component:main_c },
                 { path: '/four', component:main_d }
             ]
         })
         //总体组件
         var all = {
+            data:function(){
+                return{
+
+                }
+            },
         template: `<div>
-            <header style="box-shadow: 0 0 10px black;">
+            <header style="box-shadow: 0 0 10px black;" >
                 <router-link  to="/one">主页</router-link>
-                <router-link to="/two">第二</router-link>
+                <router-link to="/two">排序整理</router-link>
                 <router-link to="/three">第三</router-link>
                 <router-link to="/four">第四</router-link>
             </header>
             <router-view></router-view>
             <footer>
+
             </footer>
         </div>`,
-        router:router_a
+        router:router_a,
         }
        
         //总体实例
