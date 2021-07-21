@@ -192,7 +192,7 @@
                 /* display: block; */
                 height: 30px;
                 width: 100%;
-                background-color: tomato;
+                background-color: rgb(0, 238, 255);
 
                 text-align: center;
                 line-height: 30px;
@@ -201,11 +201,12 @@
             display:block;
             width: 12.5%;
             height: 30px;
-            background-color: darkorange;
+            /* background-color: rgb(175, 175, 175); */
 
             text-decoration-line: none;
             text-align: center;
             line-height: 30px;
+            color: rgb(0, 0, 0);
         }
         /* 在宽度为 768px 或更小的屏幕上*/
         @media screen and (max-width: 768px) {
@@ -220,19 +221,26 @@
                 /* display: block; */
                 height: 30px;
                 width: 100%;
-                background-color: tomato;
+                /* background-color: rgb(170, 255, 234); */
 
                 text-align: center;
                 line-height: 30px;
             }
         }
-        .listtabstyle{
-            color: rgb(255, 246, 244);
-        }
         .two_a_img img{
             display: block;
             width: 100%;
             height: 500px;
+        }
+        .two_a_title{
+            margin: 10px 0;
+            width: 100%;
+            height: 20px;
+            background-color: turquoise;
+
+            color: rgb(0, 0, 0);
+            line-height: 20px;
+            text-align: center;
         }
         /* 在宽度为 768px 或更小的屏幕上*/
         @media screen and (max-width: 768px) {
@@ -251,7 +259,7 @@
     </div>
     <script>
         //js实现媒体查询
-            var sqls = [
+        var sqls = [
             window.matchMedia('(max-width:480px)'), //和CSS一样，也要注意顺序！
             window.matchMedia('(max-width:768px)'),
             window.matchMedia('(max-width:980px)'),
@@ -290,19 +298,28 @@
                 p:"目前采用局部弹性，其余媒体查询的形式完成多端共用一个代码"
             },{
                 title:'第三条信息',
-                p:"正在学习vue，但js掌握的并不多，css和html有待提高"
+                p:"web三驾马车入门完毕，vue2.0全家桶入门完毕"
             },{
                 title:'第四条信息',
-                p:"webpack和github已经了解基本操作"
+                p:"webpack和github入门完毕"
             },{
                 title:'第五条信息',
-                p:"Es6等，也只是了解，并没有系统学习"
+                p:"typescript入门完毕"
             },{
                 title:'第六条信息',
-                p:"unity3D才开始接触"
+                p:"unity3D放弃学习"
             },{
                 title:'第七条信息',
-                p:"目前接触语言：c(能够熟练使用),c++(能够熟练使用),java(学习到ArrayList时转学web),javescript(DOM，BOM掌握不熟练，其余可以熟练使用),html(div牛13！),css(可以实现基础布局，配合js手写纯css的动态星空目前无法实现),vue2.0(3.0都出了，我2.0才了解完毕，路由、组件可以熟练部署，传值方面略有生疏，脚手架没有使用过，所以，vue单文件项目没有做过),c#(正在学习),lua(准备学习)目前暂时放弃成为大前端的目标，而是成为：小前端（主职）+游戏开发（副职）模式≈（小爱好+高兴趣+稳当职业）+（大爱好+高兴趣+较冒险职业）"
+                p:"...可以说，进入了计算机的软件行业，什么都得学..."
+            },{
+                title:'第八条信息',
+                p:"...有些只能当爱好来完成，比如web行业和游戏行业..."
+            },{
+                title:'第九条信息',
+                p:"...web偏向娱乐性，且，门槛确实低，所以，重新捡起来java开始学了..."
+            },{
+                title:'第十条信息',
+                p:"...2021年7月21日 17:54:53留..."
             }
         ]
          //首页路由页面
@@ -377,16 +394,17 @@
             },
             template: `<div>
             <main>
-                <div id="main_b_list_all" @click="ListTab()">点击（显示/隐藏）目录</div>
+                <marquee style="height:50px;"><strong style="color:white;font-size:20px;line-height: 50px;">该页面的所有内容皆来自于<a style="color:yellow" href="https://www.cnblogs.com/onepixel/p/7674659.html">https://www.cnblogs.com/onepixel/p/7674659.html</a></strong></marquee>
+                <div id="main_b_list_all" @click="ListTab()" style="cursor:pointer">点击（显示/隐藏）目录</div>
                 <div id="main_b_list" v-show="islistTab">
-                    <router-link to="/two/two_a" @click="SeeList(1)" >冒泡排序</router-link>
-                    <router-link to="/two/two_b" @click="SeeList(2)" >快速排序</router-link>
-                    <router-link to="/two/two_c" @click="SeeList(3)" >希尔排序</router-link>
-                    <router-link to="/two/two_d" @click="SeeList(4)" >堆排序</router-link>
-                    <router-link to="/two/two_e" @click="SeeList(5)" >归并排序</router-link>
-                    <router-link to="/two/two_f" @click="SeeList(6)" >计数排序</router-link>
-                    <router-link to="/two/two_g" @click="SeeList(7)" >桶排序</router-link>
-                    <router-link to="/two/two_h" @click="SeeList(8)" >基数排序</router-link>
+                    <router-link to="/two/two_a" @click="SeeList(1)" style="background-color:rgb(0, 255, 191)">冒泡排序</router-link>
+                    <router-link to="/two/two_b" @click="SeeList(2)" style="background-color:rgb(170, 255, 234)">快速排序</router-link>
+                    <router-link to="/two/two_c" @click="SeeList(3)" style="background-color:rgb(0, 255, 191)">希尔排序</router-link>
+                    <router-link to="/two/two_d" @click="SeeList(4)" style="background-color:rgb(170, 255, 234)">堆排序</router-link>
+                    <router-link to="/two/two_e" @click="SeeList(5)" style="background-color:rgb(0, 255, 191)">归并排序</router-link>
+                    <router-link to="/two/two_f" @click="SeeList(6)" style="background-color:rgb(170, 255, 234)">计数排序</router-link>
+                    <router-link to="/two/two_g" @click="SeeList(7)" style="background-color:rgb(0, 255, 191)">桶排序</router-link>
+                    <router-link to="/two/two_h" @click="SeeList(8)" style="background-color:rgb(170, 255, 234)">基数排序</router-link>
                 </div>
                     <router-view></router-view>
             </main>    
@@ -398,20 +416,13 @@
             SeeList:function(index){
                 this.seelist=index
             }
-        },
-        // computed: {
-        //     classObject: function () {
-        //         return {
-        //             listtabstyle: seelist==1
-        //         }
-        //     }
-        // }
+        }
     }
         //第三页路由页面
         const main_c = {
             template: `<div>
             <main>
-                <div>卡片31</div>
+                <div style="color:white;font-size:20px;">正在筹划内容</div>
             </main>    
         </div>`
         }
@@ -419,26 +430,33 @@
         const main_d = {
             template: `<div>
             <main>
-                <div>卡片41</div>
-                <div>卡片42</div>
+                <div style="color:white;font-size:20px;">正在筹划内容</div>
             </main>    
         </div>`
         }
         //第二二级第一路由界面
         const two_a = {
-            template: `<div><div><div class="two_a_img">
-                <img src="./tu/paixv/MaoPaoPaiXv.gif">
-        </div></div></div>`
+            template: `<div>
+            <div>
+                <div class="two_a_title">目前显示：冒泡排序<div>
+                <div class="two_a_img">
+                    <img src="./tu/paixv/MaoPaoPaiXv.gif">
+                </div>
+            </div>
+        </div>`
         }
         //第二二级第二路由界面
         const two_b = {
-            template: `<div><div><div class="two_a_img">
+            template: `<div><div>
+                <div class="two_a_title">目前显示：快速排序<div>
+                <div class="two_a_img">
                 <img src="./tu/paixv/KuaiSuPaiXv.gif">
         </div></div></div>`
         }
         //第二二级第三路由界面
         const two_c = {
             template: `<div><div>
+                <div class="two_a_title">目前显示：希尔排序<div>
                 <div class="two_a_img">
                 <img src="./tu/paixv/XiErPaiXv.gif">
             </div>
@@ -447,31 +465,41 @@
         }
         //第二二级第四路由界面
         const two_d = {
-            template: `<div><div><div class="two_a_img">
+            template: `<div><div>
+                <div class="two_a_title">目前显示：堆排序<div>
+                <div class="two_a_img">
                 <img src="./tu/paixv/DuiPaiXv.gif">
         </div></div></div>`
         }
         //第二二级第一路由界面
         const two_e = {
-            template: `<div><div><div class="two_a_img">
+            template: `<div><div>
+                <div class="two_a_title">目前显示：归并排序<div>
+                <div class="two_a_img">
                 <img src="./tu/paixv/GuiBingPaiXv.gif">
         </div></div></div>`
         }
         //第二二级第二路由界面
         const two_f = {
-            template: `<div><div><div class="two_a_img">
+            template: `<div><div>
+                <div class="two_a_title">目前显示：计数排序<div>
+                <div class="two_a_img">
                 <img src="./tu/paixv/JiShuPaiXv(jisuan).gif">   
         </div></div></div>`
         }
         //第二二级第三路由界面
         const two_g = {
-            template: `<div><div><div class="two_a_img">
+            template: `<div><div>
+                <div class="two_a_title">目前显示：桶排序<div>
+                <div class="two_a_img">
                 <img src="./tu/paixv/TongPaiXv.png">
         </div></div></div>`
         }
         //第二二级第四路由界面
         const two_h = {
-            template: `<div><div><div class="two_a_img">
+            template: `<div><div>
+                <div class="two_a_title">目前显示：基数排序<div>
+                <div class="two_a_img">
                 <img src="./tu/paixv/JiShuPaiXv(jiben).gif">
         </div></div></div>`
         }
